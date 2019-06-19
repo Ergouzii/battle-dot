@@ -80,11 +80,11 @@ class PlayerList():
             cur.run()
             win = cur.join() # get the return value from thread
             if win:
-                print('\nCurrent round: {}'.format(roundCount))
+                print('--------------------------')
+                print('Current round: {}'.format(roundCount))
                 print('The winner is: {}'.format(cur.name))
                 print('The loser is: {}'.format(cur.nextPlayer.name))
                 print('{} is now bombing {}'.format(cur.name, cur.nextPlayer.nextPlayer.name))
-                print('--------------------------')
                 self.removePlayer(cur.nextPlayer.name) # remove next player if cur wins
                 cur = cur.nextPlayer
             else:
@@ -111,7 +111,8 @@ def main():
     for num in range(numOfPlayers): # add each player to the circular linked list
         players.addPlayer(num)
 
-    print('\nPlayer names: {}'.format(' -> '.join(str(x) for x in list(range(numOfPlayers)))) + ' -> 0')
+    print('\n--------Battle Dot--------')
+    print('Player names: {}'.format(' -> '.join(str(x) for x in list(range(numOfPlayers)))) + ' -> 0\n')
 
     players.playGame()
     
